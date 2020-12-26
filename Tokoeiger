@@ -1,0 +1,155 @@
+import os
+
+#Penampungan Value
+kode=[]
+jenis=[]
+harga=[]
+nama=[]
+
+
+def beranda():
+    os.system('cls')
+    a=0
+    n=len(kode)
+    print("----------------------------------------")
+    print("--  APLIKASI KARYAWAN OUTDOOR EIGER   --")
+    print("----------------------------------------")
+    print("--    Silahkan Pilih Menu Dibawah     --")
+    print("--    1. Masukan Data Barang          --")
+    print("--    2. Masukan Edit Barang          --")
+    print("--    3. Masukan Hapus Barang         --")
+    print("--    4. Melihat List Barang          --")
+    print("--    5. Keluar Program               --")
+    print("--           Credit                   --")
+    menu=input("   Silahkan pilih [1 - 5] : ")
+    if menu=='1':
+        data()
+        input(" Data Sudah Tersimpan Terima Kasih ")
+        input(" Kembali ke Sebelumnya  -->")
+        beranda()
+    elif menu=='2':
+        edit()
+        input(" Data Berhasil Di Ubah ")
+        input(" Kembali Ke Sebelumnya  -->")
+        beranda()
+    elif menu=='3':
+        hapus()
+        input(" Data Berhasil Di Hapus ")
+        input(" Kembali Ke Sebelumnya  -->")
+        beranda()
+    elif menu=='4':
+        daftar()
+        input(" Data Berhasil Di Ubah ")
+        input(" Kembali Ke Sebelumnya  -->")
+        beranda()
+    elif menu=='5':
+        exit()
+    else :
+        credit()
+        print(" Maaf Pilihan Tidak Tersedia ")
+        input("Kembali Ke Sebelumnya  -->")
+        beranda()
+
+#Isi List DEF Pilihan 
+def data():
+    os.system('cls')
+    print("----------------------------------------")
+    print("--  APLIKASI KARYAWAN OUTDOOR EIGER   --")
+    print("--      Input Data Barang Eiger       --")
+    print("----------------------------------------")
+    kode1=input("  Kode Barang  : ")
+    nama1=input("  Nama Barang  : ")
+    jenis1=input("  Jenis Barang : ")
+    harga1=int(input("  Harga Barang : "))
+    kode.append(kode1)
+    nama.append(nama1)
+    jenis.append(jenis1)
+    harga.append(harga1)
+    print()
+    input(" Data Telah Ditambahkan ")
+
+
+def daftar():
+    os.system('cls')
+    a=0
+    n=len(kode)
+    print("----------------------------------------")
+    print("--  APLIKASI KARYAWAN OUTDOOR EIGER   --")
+    print("--     Melihat data Barang Eiger      --")
+    print("----------------------------------------")
+    if n<=0:
+        input("Maaf Barang Tidak Ada")
+        beranda()
+    else:
+        input("--  Data Gudang")
+        print("List Kode Barang")
+        print("------------------")
+        for x in range(n):
+            print()
+            print(" Barang No ",a)
+            print("Kode Barang  : ",kode[a],"-Kw",a)
+            print("Nama Barang  : ",nama[a])
+            print("Jenis Barang : ",jenis[a])
+            print("Harga Barang : ",harga[a])
+            a=a+1
+            print("--------------------------")
+
+
+def credit():
+    os.system('cls')
+    print("----------------------------------------")
+    print("--  APLIKASI KARYAWAN OUTDOOR EIGER   --")
+    print("--               Credit               --")
+    print("----------------------------------------")
+    print("PT.Eiger Outdoor Indonesia")
+    print("Databases Outdoor Indonesia")
+    input("Thanks")
+    beranda()
+
+
+def hapus():
+    os.system('cls')
+    print("----------------------------------------")
+    print("--  APLIKASI KARYAWAN OUTDOOR EIGER   --")
+    print("--        Hapus Data Barang           --")
+    print("----------------------------------------")
+    daftar()
+    print("----------------------------------------")
+    hapus=int(input(" Pilih Data Barang (Angka Dibelakang Barang 0) : "))
+    kode.pop(hapus)
+    nama.pop(hapus)
+    jenis.pop(hapus)
+    harga.pop(hapus)
+    input("Data Berhasil DiHapus")
+    beranda()
+
+
+def edit():
+    os.system('cls')
+    print("----------------------------------------")
+    print("--  APLIKASI KARYAWAN OUTDOOR EIGER   --")
+    print("--     Mengedit data Barang Eiger     --")
+    print("----------------------------------------")
+    daftar()
+    print("----------------------------------------")
+    edit=int(input("Pilih Data Barang (Angka Dibelakang Barang 0 : "))
+    kode.pop(edit)
+    nama.pop(edit)
+    jenis.pop(edit)
+    harga.pop(edit)
+    input("Silahkan Masukan Data Pengganti")
+    kode1=input("  Kode Barang  : ")
+    nama1=input("  Nama Barang  : ")
+    jenis1=input("  Jenis Barang : ")
+    harga1=int(input("  Harga Barang : "))
+    kode.append(kode1)
+    nama.append(nama1)
+    jenis.append(jenis1)
+    harga.append(harga1)
+    print()
+    input(" Data Telah DiGanti ")
+    beranda()
+
+
+
+beranda()
